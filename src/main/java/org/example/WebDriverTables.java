@@ -9,7 +9,7 @@ public class WebDriverTables {
     public static void main(String[] args) {
         WebDriver driver = new ChromeDriver();
         String localDir = System.getProperty("user.dir");
-        driver.get("file:///"+localDir+"/src/main/webapp/TableTest.html");
+        driver.get("file:///" + localDir + "/src/main/webapp/TableTest.html");
 
         //WebElement outerTable = driver.findElement(By.tagName("table"));
         //WebElement innerTable = outerTable.findElement(By.tagName("table"));

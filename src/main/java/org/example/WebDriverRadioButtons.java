@@ -12,7 +12,7 @@ public class WebDriverRadioButtons {
     public static void main(String args[]) {
         WebDriver driver = new ChromeDriver();
         String localDir = System.getProperty("user.dir");
-        driver.get("file:///"+localDir+"/src/main/webapp/RadioButtonTest.html");
+        driver.get("file:///" + localDir + "/src/main/webapp/RadioButtonTest.html");
 
         List<WebElement> radioButtons = driver.findElements(By.name("color"));
         radioButtons.get(1).click();
