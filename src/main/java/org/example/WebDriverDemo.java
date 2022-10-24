@@ -1,11 +1,48 @@
 package org.example;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.net.MalformedURLException;
+import java.time.Duration;
 
 public class WebDriverDemo {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws MalformedURLException {
         WebDriver driver = new ChromeDriver();
-        driver.get("http://www.pluralsight.com");
+        //WebDriver driver = new FirefoxDriver();
+        //driver.get("http://www.pluralsight.com");
+
+        //ChromeOptions chromeOptions = new ChromeOptions();
+        //chromeOptions.addArguments("start-maximized");
+        //WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),chromeOptions);
+
+        driver.get("http://www.google.com");
+
+        WebElement acceptCookiesButton = driver.findElement(By.id("L2AGLb"));
+        if (acceptCookiesButton != null) {
+            acceptCookiesButton.click();
+        }
+
+        WebElement searchField = driver.findElement(By.name("q"));
+        searchField.click();
+        searchField.sendKeys("pluralsight");
+        searchField.sendKeys(Keys.ENTER);
+
+        By linkText = By.linkText("Imagini");
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.presenceOfElementLocated(linkText));
+
+        WebElement imagesLink = driver.findElements(linkText).get(0);
+        imagesLink.click();
+
+        WebElement imageElement = driver.findElements(By.cssSelector("img[class='rg_i Q4LuWd']")).get(0);
+        imageElement.click();
+
+        driver.getPageSource().contains("Some text that you want to search for");
     }
 }
