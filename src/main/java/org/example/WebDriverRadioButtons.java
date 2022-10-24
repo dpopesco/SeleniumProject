@@ -11,7 +11,8 @@ public class WebDriverRadioButtons {
 
     public static void main(String args[]) {
         WebDriver driver = new ChromeDriver();
-        driver.get("file:///home/diana/Automation/WebDriverDemo/src/main/webapp/RadioButtonTest.html");
+        String localDir = System.getProperty("user.dir");
+        driver.get("file:///"+localDir+"/src/main/webapp/RadioButtonTest.html");
 
         List<WebElement> radioButtons = driver.findElements(By.name("color"));
         radioButtons.get(1).click();

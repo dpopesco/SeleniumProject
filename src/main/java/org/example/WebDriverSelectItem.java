@@ -9,7 +9,8 @@ import org.openqa.selenium.support.ui.Select;
 public class WebDriverSelectItem {
     public static void main(String[] args) {
         WebDriver driver = new ChromeDriver();
-        driver.get("file:///home/diana/Automation/WebDriverDemo/src/main/webapp/SelectItemTest.html");
+        String localDir = System.getProperty("user.dir");
+        driver.get("file:///"+localDir+"/src/main/webapp/SelectItemTest.html");
 
         WebElement selectElement = driver.findElement(By.id("select1"));
         Select select = new Select(selectElement);

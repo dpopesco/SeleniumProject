@@ -33,10 +33,11 @@ public class WebDriverDemo {
         searchField.sendKeys("pluralsight");
         searchField.sendKeys(Keys.ENTER);
 
+        By linkText = By.linkText("Imagini");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.linkText("Imagini")));
+        wait.until(ExpectedConditions.presenceOfElementLocated(linkText));
 
-        WebElement imagesLink = driver.findElements(By.linkText("Imagini")).get(0);
+        WebElement imagesLink = driver.findElements(linkText).get(0);
         imagesLink.click();
 
         WebElement imageElement = driver.findElements(By.cssSelector("img[class='rg_i Q4LuWd']")).get(0);
