@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.net.MalformedURLException;
 import java.time.Duration;
 
-public class SeleniumProject {
+public class LocatorsPractice {
     public static void main(String[] args) throws MalformedURLException {
         WebDriver driver = new ChromeDriver();
         //WebDriver driver = new FirefoxDriver();
